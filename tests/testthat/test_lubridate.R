@@ -9,3 +9,23 @@ test_that("lubridate intervals handle Etc timezones", {
   expect_true(lubridate::`%within%`(t1, i1))
   expect_false(lubridate::`%within%`(t1, i2))
 })
+
+test_that("lubridate with_tz UTC", {
+  t1 <- as.POSIXct("2016-09-01 09:00:00", tz = "Etc/GMT+8")
+  expect_silent(lubridate::with_tz(t1, tzone = "UTC"))
+})
+
+test_that("lubridate with_tz America/Vancouver", {
+  t1 <- as.POSIXct("2016-09-01 09:00:00", tz = "Etc/GMT+8")
+  expect_silent(lubridate::with_tz(t1, tzone = "America/Vancouver"))
+})
+
+test_that("lubridate with_tz America/Toronto", {
+  t1 <- as.POSIXct("2016-09-01 09:00:00", tz = "Etc/GMT+8")
+  expect_silent(lubridate::with_tz(t1, tzone = "America/Toronto"))
+})
+
+test_that("lubridate with_tz Etc/GMT+8", {
+  t1 <- as.POSIXct("2016-09-01 09:00:00", tz = "UTC")
+  expect_silent(lubridate::with_tz(t1, tzone = "Etc/GMT+8"))
+})

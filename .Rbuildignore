@@ -1,2 +1,4 @@
 ^testing.Rproj$
 ^\.Rproj\.user$
+^appveyor.yml$
+^.*\.Rproj$
